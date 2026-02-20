@@ -11,7 +11,7 @@ set -ouex pipefail
 # Install Fedora packages:
 dnf5 install -y bat blackbox-terminal fd-find lsd ripgrep trash-cli zoxide
 # Uninstall Fedora packages:
-dnf5 remove -y ptyxis
+dnf5 remove -y malcontent ptyxis waydroid
 
 # Install COPR packages:
 # dnf5 copr enable -y ublue-os/staging
