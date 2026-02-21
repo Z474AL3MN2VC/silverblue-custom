@@ -9,19 +9,39 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # Install Fedora packages:
-dnf5 install -y bat blackbox-terminal fd-find lsd ripgrep trash-cli zoxide
+dnf5 install -y bat blackbox-terminal btrfs-assistant fd-find lsd lutris ripgrep steam trash-cli zoxide
 # Uninstall Fedora packages:
-dnf5 remove -y malcontent ptyxis waydroid
+dnf5 remove -y malcontent ptyxis
 
-# Install COPR packages:
+# Enable COPR repos and install COPR packages:
 # dnf5 copr enable -y ublue-os/staging
 # dnf5 install -y package
 dnf copr enable -y atim/bottom
 dnf copr enable -y lihaohong/yazi
 dnf5 install -y bottom yazi
 
+# VSCodium Repo
+tee -a /etc/yum.repos.d/vscodium.repo << 'EOF'
+[gitlab.com_paulcarroty_vscodium_repo]
+name=gitlab.com_paulcarroty_vscodium_repo
+baseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+metadata_expire=1h
+EOF
+
+# Sublime Text Repo
+rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+dnf config-manager addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+
+# Install third party packages.
+dnf5 install -y codium sublime-text
+
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 copr disable -y ublue-os/staging
+
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
