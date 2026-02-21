@@ -40,9 +40,34 @@ metadata_expire=1h
 EOF
 dnf5 install -y codium
 
+# Install flatpak packages:
+flatpak install -y be.alexandervanhee.gradia
+flatpak install -y ca.desrt.dconf-editor
+flatpak install -y com.bitwarden.desktop
+flatpak install -y com.discordapp.Discord
+flatpak install -y com.github.Matoking.protontricks
+flatpak install -y com.github.tchx84.Flatseal
+flatpak install -y com.mastermindzh.tidal-hifi
+flatpak install -y com.mattjakeman.ExtensionManager
+flatpak install -y com.nextcloud.desktopclient.nextcloud
+flatpak install -y com.protonvpn.www
+flatpak install -y com.rustdesk.RustDesk
+flatpak install -y com.vysp3r.ProtonPlus
+flatpak install -y io.github.flattool.Ignition
+flatpak install -y io.github.flattool.Warehouse
+flatpak install -y io.github.pwr_solaar.solaar
+flatpak install -y io.github.realmazharhussain.GdmSettings
+flatpak install -y io.gitlab.librewolf-community
+flatpak install -y me.proton.Mail
+flatpak install -y net.cozic.joplin_desktop
+flatpak install -y org.deluge_torrent.deluge
+flatpak install -y org.jellyfin.JellyfinDesktop
+flatpak install -y org.libreoffice.LibreOffice
+flatpak install -y org.openrgb.OpenRGB
+flatpak install -y page.tesk.Refine
+
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 copr disable -y ublue-os/staging
-
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
