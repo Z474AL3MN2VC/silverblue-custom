@@ -9,10 +9,13 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # Install Fedora packages:
-dnf5 install -y bat blackbox-terminal btrfs-assistant fd-find lsd lutris nfs-utils npm procs ripgrep steam trash-cli zoxide
+dnf5 install -y bat blackbox-terminal btrfs-assistant fd-find lsd lutris npm procs ripgrep steam trash-cli zoxide
+
+# Install Node packages:
+npm i -g @continuedev/cli
 
 # Uninstall Fedora packages:
-dnf5 remove -y malcontent
+dnf5 remove -y malcontent --noautoremove
 dnf5 remove -y ptyxis
 
 # Enable COPR repos and install COPR packages:
