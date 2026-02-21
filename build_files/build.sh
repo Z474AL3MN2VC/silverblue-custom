@@ -15,7 +15,7 @@ dnf5 install -y bat blackbox-terminal btrfs-assistant fd-find gamescope lsd lutr
 # npm i -g @continuedev/cli
 
 # Uninstall Fedora packages:
-dnf5 remove -y malcontent --noautoremove
+#dnf5 remove -y malcontent
 dnf5 remove -y ptyxis
 
 # Enable COPR repos and install COPR packages:
