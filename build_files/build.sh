@@ -32,12 +32,11 @@ gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
 metadata_expire=1h
 EOF
 
-# Sublime Text Repo
-rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-dnf5 config-manager -y addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+dnf5 config-manager -y addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 
 # Install third party packages.
-dnf5 install -y codium sublime-text
+dnf5 install -y codium
+dnf5 install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 copr disable -y ublue-os/staging
