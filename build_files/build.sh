@@ -36,7 +36,7 @@ dnf5 config-manager -y addrepo --from-repofile https://download.docker.com/linux
 
 # Install third party packages.
 dnf5 install -y codium
-dnf5 install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+dnf5 install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 copr disable -y ublue-os/staging
