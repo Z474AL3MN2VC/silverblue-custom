@@ -10,8 +10,10 @@ set -ouex pipefail
 
 # Install Fedora packages:
 dnf5 install -y bat blackbox-terminal btrfs-assistant fd-find lsd lutris nfs-utils npm procs ripgrep steam trash-cli zoxide
+
 # Uninstall Fedora packages:
-dnf5 remove -y malcontent ptyxis
+dnf5 remove -y malcontent
+dnf5 remove -y ptyxis
 
 # Enable COPR repos and install COPR packages:
 dnf copr enable -y atim/bottom
