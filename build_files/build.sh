@@ -34,7 +34,7 @@ EOF
 
 # Sublime Text Repo
 rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-dnf config-manager -y addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+dnf5 config-manager -y addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 
 # Install third party packages.
 dnf5 install -y codium sublime-text
